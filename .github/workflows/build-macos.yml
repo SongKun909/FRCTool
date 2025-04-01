@@ -32,7 +32,7 @@ jobs:
         run: pyinstaller --onefile --windowed FRCTool.py
 
       - name: Upload build artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v2.3.1
         with:
           name: macos-executable
-          path: dist/FRCTool  # 如果你在 PyInstaller 中指定了其他名字，请同步修改
+          path: dist/FRCTool
