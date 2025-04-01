@@ -10,6 +10,10 @@ on:
 jobs:
   build-macos:
     runs-on: macos-latest
+
+    permissions:
+      contents: write
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -28,7 +32,7 @@ jobs:
         run: pyinstaller --onefile --windowed FRCTool.py
 
       - name: Upload build artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: macos-executable
-          path: dist/FRCTool  # 注意：生成的可执行文件名称为 FRCTool（没有扩展名），你可根据实际情况调整
+          path: dist/FRCTool  # 如果你在 PyInstaller 中指定了其他名字，请同步修改
