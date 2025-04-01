@@ -2,7 +2,7 @@ from flask import Flask, render_template_string, request
 
 app = Flask(__name__)
 
-# HTML 模板：内嵌了 CSS 进行简单美化
+# HTML 模板
 html_template = """
 <!doctype html>
 <html lang="zh-CN">
@@ -112,5 +112,5 @@ def index():
     return render_template_string(html_template, fps=fps, frames=frames, result=result, error=error)
 
 if __name__ == "__main__":
-    # 生产环境下可取消 debug 参数
+    # 生产环境下可取消debug参数
     app.run(debug=True)
