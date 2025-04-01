@@ -19,9 +19,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.9'
+        uses: actions/setup-python@v2  # 如果也拉取失败，可继续 fork 替换
 
       - name: Install dependencies
         run: |
@@ -32,7 +30,7 @@ jobs:
         run: pyinstaller --onefile --windowed FRCTool.py
 
       - name: Upload build artifact
-        uses: actions/upload-artifact@v2.3.1
+        uses: SongKun909/upload-artifact@main  # ✅ 用你自己的 Fork
         with:
           name: macos-executable
           path: dist/FRCTool
